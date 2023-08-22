@@ -1,4 +1,3 @@
-
 # Laporan Proyek Machine Learning - Jauza Krito
 
 ## Domain Proyek
@@ -156,7 +155,8 @@ _Data preparation_ yang digunakan di antaranya:
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Proses ini dilakukan dengan menggunakan tiga algoritma, yakni KNN, RandomForest, dan AdaBoost. Hasil akhirnya adalah untuk mencari algoritma yang memiliki performa paling baik dari ketiga algoritma yang digunakan. Dapat dilihat dari _bar chart_ yang menunjukkan tiga model algoritma yang digunakan. Diketahui bahwa algoritma KNN merupakan algoritma yang memiliki error yang paling kecil dibanding model lainnya.
 
-![eval](https://user-images.githubusercontent.com/57740421/191168197-ffee2389-6f90-4677-b7f1-84039afeedf2.png)
+![download (1)](https://github.com/median91/heart-disease/assets/62655457/2da72e70-876f-4817-9f33-fcafebaeef4e)
+
 
 - Dalam membangun model KNN, digunakan module `RandomForestClassifier` dari _library_ `sklearn`. Digunakan parameter `n_neighbors = 10` untuk membangun model. Untuk melakukan _training_, maka digunakan `.fit(Xtrain, ytrain)` untuk _fitting_. Kemudian, untuk melakukan melakukan prediksi, digunakan `.predict(Xtrain)`.
 
