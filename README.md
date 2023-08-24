@@ -6,7 +6,9 @@ Dalam proyek ini, kami memilih domain kesehatan sebagai fokus prediksi, khususny
 
 Penyakit kardiovaskular (CVD) adalah penyebab utama kematian di seluruh dunia, merenggut sekitar 17,9 juta nyawa setiap tahun dan menyumbang 31% dari total kematian di seluruh dunia. Hampir empat dari setiap lima kematian akibat penyakit kardiovaskular disebabkan oleh serangan jantung dan stroke, dan sekitar sepertiga kematian tersebut terjadi pada individu di bawah usia 70 tahun. Gagal jantung adalah salah satu kejadian umum yang disebabkan oleh CVD, dan dataset yang digunakan dalam proyek ini memiliki 11 fitur yang dapat digunakan untuk memprediksi kemungkinan terjadinya penyakit jantung.
 
-Orang-orang dengan penyakit kardiovaskular atau risiko kardiovaskular yang tinggi (karena faktor risiko seperti tekanan darah tinggi, diabetes, hiperlipidemia, atau riwayat medis sebelumnya) adalah kelompok awal yang sangat memerlukan deteksi dan manajemen dini. Dalam hal ini, model _machine learning_ yang dibangun dapat memberikan kontribusi yang signifikan.
+Orang-orang dengan penyakit kardiovaskular atau risiko kardiovaskular yang tinggi (karena faktor risiko seperti tekanan darah tinggi, diabetes, hiperlipidemia, atau riwayat medis sebelumnya) adalah kelompok awal yang sangat memerlukan deteksi dan manajemen dini. Dalam hal ini, model _machine learning_ yang dibangun dapat memberikan kontribusi yang signifikan. Penggunaan model _machine learning_ dalam prediksi penyakit kardiovaskular dapat membantu dokter dalam diagnosis dan membantu pasien untuk mengambil tindakan pencegahan lebih awal. Model _machine learning_ seperti _Random Forest_ dan _Logistic Regression_ dapat digunakan untuk memprediksi penyakit jantung berdasarkan faktor risiko seperti tekanan darah, gula darah, dan usia.
+7
+. Dengan prediksi ini, dokter dapat mengidentifikasi pasien yang berisiko tinggi dan memberikan intervensi lebih awal.
 
 ## Pemahaman Bisnis
 
@@ -16,15 +18,15 @@ Bagaimana cara mendeteksi apakah seseorang memiliki penyakit jantung (_heart dis
 
 ### Tujuan
 
-Tujuan dari proyek ini adalah untuk mengatasi permasalahan yang telah diuraikan di atas dengan membuat model prediksi yang mampu memprediksi apakah seseorang memiliki penyakit jantung (_heart disease_) berdasarkan data riwayat kesehatannya.
+Tujuan dari proyek ini adalah untuk mengatasi permasalahan yang telah diuraikan di atas dengan membuat model prediksi yang mampu memprediksi apakah seseorang memiliki penyakit jantung (_heart disease_) berdasarkan data riwayat kesehatannya. Dengan deteksi dini dan pencegahan penyakit jantung, biaya perawatan jangka panjang dapat berkurang. Penggunaan terapi yang tepat, seperti penggunaan statin, dapat menurunkan biaya perawatan kasus jantung koroner.
 
 ### Pernyataan Solusi
 
 Untuk menyelesaikan permasalahan ini, kami menggunakan tiga algoritma _machine learning_: **_K-NN_**, **_Random Forest_**, dan **_AdaBoost_**. Ketiga algoritma ini digunakan untuk membandingkan dan mendapatkan model atau algoritma yang memberikan tingkat kesalahan paling rendah, sehingga prediksi penyakit jantung memiliki akurasi yang tinggi.
 
--   **_K-NN_** Algoritma _K-Nearest Neighbor_ (K-NN) adalah algoritma _machine learning_ yang sederhana dan mudah diimplementasikan, umumnya digunakan untuk masalah klasifikasi dan regresi. Algoritma ini termasuk dalam kategori pembelajaran berbimbing. Tujuan dari _K-NN_ adalah mengidentifikasi tetangga terdekat dari titik yang diberikan sehingga dapat menentukan label prediksi untuk titik tersebut.
+-   **_K-NN_** Algoritma _K-Nearest Neighbor_ (K-NN) adalah algoritma _machine learning_ yang sederhana dan mudah diimplementasikan, umumnya digunakan untuk masalah klasifikasi dan regresi. Algoritma ini termasuk dalam kategori pembelajaran berbimbing. Tujuan dari _K-NN_ adalah mengidentifikasi tetangga terdekat dari titik yang diberikan sehingga dapat menentukan label prediksi untuk titik tersebut. Salah satu cara untuk menentukan nilai K adalah dengan mempertimbangkan jumlah kelas yang ada. Jika jumlah kelas genap, sebaiknya nilai K ganjil, dan sebaliknya jika jumlah kelas ganjil, sebaiknya nilai K genap. Hal ini dilakukan untuk menghindari ambiguitas dalam menentukan kelas dari data baru. Selain itu, nilai K dapat ditentukan dengan mencoba berbagai nilai K dan memilih nilai yang menghasilkan akurasi tertinggi pada data validasi.
     
--   **_Random Forest_** _Random forest_ adalah kombinasi dari masing-masing _tree_ atau pohon, yang kemudian digabungkan menjadi satu model. _Random forest_ mengandalkan nilai vektor acak dengan distribusi yang sama pada semua pohon, di mana setiap _tree_ memiliki kedalaman maksimal.
+-   **_Random Forest_** _Random forest_ adalah kombinasi dari masing-masing _tree_ atau pohon, yang kemudian digabungkan menjadi satu model. _Random forest_ mengandalkan nilai vektor acak dengan distribusi yang sama pada semua pohon, di mana setiap _tree_ memiliki kedalaman maksimal. Jumlah estimator yang optimal pada Random Forest bergantung pada jumlah prediktor dan ukuran data.
     
 -   **_AdaBoost_** _AdaBoost_ atau _Adaptive Boost_ adalah algoritma yang memanfaatkan _bagging_ dan _boosting_ untuk meningkatkan akurasi. Seperti _random forest_, _AdaBoost_ juga menggunakan beberapa _decision tree_ untuk prediksi.
 
@@ -143,7 +145,7 @@ Melakukan observasi korelasi antara fitur numerical dengan fitur target
 _Data preparation_ yang digunakan di antaranya:
 
 1. Seleksi Data: Menyeleksi data apakah data tersebut ada yang kosong atau tidak, jika ada data kosong maka akan dihapus. Pada data`heart_disease` tidak didapati data yang kosong. Hal ini dibuktikan dari pengecekan menggunakan `isnull().sum()`.
-2. Menangani Outlier: Melakukan pengecekan apakah data `heart_disease` memiliki data outlier. Apabila terdapat data outlier, maka akan dihapus. Dalam menangani _outlier_, digunakan metode IQR. Ditemukan _outlier_ pada data `heart_disease`, hal ini ditemukan dengan melakukan visualisasi dengan `boxplot`. Dapat dilihat pada gambar, bahwa _outlier_ ditermukan pada `RestingBP`, `Cholesterol`, `MaxHR`, dan `Oldpeak`. Untuk mengatasi _outlier_ yang ada, maka digunakan metode IQR.
+2. Menangani Outlier: Melakukan pengecekan apakah data `heart_disease` memiliki data outlier. Apabila terdapat data outlier, maka akan dihapus. Dalam menangani _outlier_, digunakan metode IQR. Ditemukan _outlier_ pada data `heart_disease`, hal ini ditemukan dengan melakukan visualisasi dengan `boxplot`. Dapat dilihat pada gambar, bahwa _outlier_ ditermukan pada `RestingBP`, `Cholesterol`, `MaxHR`, dan `Oldpeak`. Untuk mengatasi _outlier_ yang ada, maka digunakan metode IQR. Langkah pertama dalam metode ini adalah menghitung kuartil pertama (Q1) dan kuartil ketiga (Q3) dari data. Q1 adalah nilai yang membagi 25% data terendah, sedangkan Q3 adalah nilai yang membagi 25% data tertinggi. Selanjutnya, hitung IQR dengan mengurangkan Q1 dari Q3 (IQR = Q3 - Q1). Dari nilai IQR, tentukan batas bawah dan batas atas dengan mengalikan IQR dengan 1,5 dan mengurangkan hasilnya dari Q1 untuk batas bawah (Q1 - 1,5IQR) serta menambahkannya ke Q3 untuk batas atas (Q3 + 1,5IQR). Data yang lebih kecil dari batas bawah atau lebih besar dari batas atas dianggap sebagai outlier.
 
 ![outlier](https://user-images.githubusercontent.com/57740421/191170856-e838489d-4335-4b60-a739-0f2e6d0f95fb.png)
 
@@ -210,6 +212,8 @@ Pada tabel di bawah disajikan informasi hasil prediksi dari model yang digunakan
 | 44  | 1      | 1            | 1                 | 1                     |
 | 103 | 1      | 1            | 1                 | 1                     |
 | 852 | 1      | 1            | 1                 | 1                     |
+
+Beberapa rekomendasi atau arah penelitian lebih lanjut berupa penelitian lebih lanjut yang dapat dilakukan untuk mengembangkan metode prediksi yang lebih akurat dengan menggunakan berbagai algoritma machine learning, seperti Ensemble Learning, Deep Learning, dan metode lainnya. Serta dpenelitian lebih lanjut dapat dilakukan untuk mengevaluasi dampak sosial dan ekonomi dari prediksi penyakit kardiovaskular yang akurat, seperti mengurangi biaya perawatan jangka panjang dan meningkatkan kualitas hidup pasien. Perlu adanya pengujian tahap alfa pada institusi kesehatan agar metode ini bisa menjadi semakin baik.
 
 Referensi:
 
